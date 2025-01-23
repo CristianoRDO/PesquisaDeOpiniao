@@ -2,8 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background">#010B13</color>
-    <color name="button_background">#0070FF</color>
-    <color name="button_cal_background">#50C878</color>
-    <color name="result_color">#ED9121</color>
+    <color name="dark_brown">#5e3c2c</color>
+    <color name="rosy_beige">#b49984</color>
+    <color name="light_brown_beige">#f8f0e5</color>
 </resources>

@@ -1,4 +1,4 @@
-package br.edu.ifsp.dmo1.pesquisadeopiniao.ui.main
+package br.edu.ifsp.dmo1.pesquisadeopiniao.ui.voto
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,16 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import br.edu.ifsp.dmo1.pesquisadeopiniao.R
-import br.edu.ifsp.dmo1.pesquisadeopiniao.databinding.ActivityMainBinding
+import br.edu.ifsp.dmo1.pesquisadeopiniao.databinding.ActivityVotoBinding
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
+class VotoActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityVotoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityVotoBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
-
 }
