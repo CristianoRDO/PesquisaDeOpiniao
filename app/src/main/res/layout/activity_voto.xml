@@ -52,30 +52,43 @@
 
         <RadioButton
             android:id="@+id/radio_otimo"
+            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/option_otimo"
-            android:textColor="@color/dark_brown"/>
+            android:textColor="@color/dark_brown"
+            android:drawableEnd="@drawable/ic_otimo"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/dark_brown" />
 
         <RadioButton
             android:id="@+id/radio_bom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/option_bom"
+            android:drawableTint="@color/dark_brown"
+            android:drawablePadding="10dp"
+            android:drawableEnd="@drawable/ic_bom"
             android:textColor="@color/dark_brown"/>
 
         <RadioButton
             android:id="@+id/radio_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:drawableTint="@color/dark_brown"
             android:text="@string/option_regular"
+            android:drawablePadding="10dp"
+            android:drawableEnd="@drawable/ic_regular"
             android:textColor="@color/dark_brown"/>
 
         <RadioButton
             android:id="@+id/radio_ruim"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:drawableTint="@color/dark_brown"
             android:text="@string/option_ruim"
+            android:drawablePadding="10dp"
+            android:drawableEnd="@drawable/ic_ruim"
             android:textColor="@color/dark_brown"/>
     </RadioGroup>
 
@@ -84,12 +97,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp"
         android:backgroundTint="@color/rosy_beige"
         android:text="@string/vote_button"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radio_group" />
+        app:layout_constraintTop_toBottomOf="@+id/radio_group"
+        android:textSize="15sp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
