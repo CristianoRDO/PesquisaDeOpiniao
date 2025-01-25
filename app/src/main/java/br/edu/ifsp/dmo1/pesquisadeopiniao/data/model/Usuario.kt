@@ -1,4 +1,3 @@
 package br.edu.ifsp.dmo1.pesquisadeopiniao.data.model
 
-class Usuario {
-}
+data class Usuario(val prontuario: String, val nome: String)

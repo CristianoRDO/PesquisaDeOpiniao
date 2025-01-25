@@ -1,4 +1,5 @@
 package br.edu.ifsp.dmo1.pesquisadeopiniao.data.model
 
-class Voto {
-}
+import br.edu.ifsp.dmo1.pesquisadeopiniao.utils.OpcaoVoto
+
+data class Voto(val codigo: String, val opcao: OpcaoVoto)
