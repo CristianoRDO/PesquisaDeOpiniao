@@ -16,7 +16,7 @@ class VotoDao(private val db: DatabaseHelper) {
        return result != -1L
    }
 
-    fun getTotalVote(): Map<OpcaoVoto, Int> {
+    fun getTotalVoteByOption(): Map<OpcaoVoto, Int> {
         val reader = db.readableDatabase
         val query = """
             SELECT ${DatabaseHelper.DATABASE_KEYS.COLUMN_VOTE_OPTION}, COUNT(*)
