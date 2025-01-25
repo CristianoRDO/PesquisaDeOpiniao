@@ -12,7 +12,7 @@ class UsuarioDao(private val db: DatabaseHelper) {
             put(DatabaseHelper.DATABASE_KEYS.COLUMN_USER_NAME, usuario.nome)
         }
         val result = writer.insert(DatabaseHelper.DATABASE_KEYS.USER_TABLE_NAME, null, values)
-        return result > -1
+        return result != -1L
     }
 
     fun findUserByProntuario(prontuario: String): Usuario? {
