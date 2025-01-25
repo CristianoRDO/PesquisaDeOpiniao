@@ -4,7 +4,7 @@
     <string name="opinion_survey">Pesquisa de Opinião</string>
     <string name="button_participate_survey">Participar da Pesquisa</string>
     <string name="button_check_vote">Checar meu Voto</string>
-    <string name="button_finish">Finalizar</string>
+    <string name="button_count">Contabilizar Votos</string>
 
     <string name="inform_user">Informar Usuário</string>
     <string name="hint_prontuario">Prontuário</string>

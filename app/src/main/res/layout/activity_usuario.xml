@@ -5,8 +5,18 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.usuario.UsuarioActivity"
-    android:background="@color/light_brown_beige">
+    android:background="@color/light_brown_beige"
+    android:padding="20dp"
+    tools:context=".ui.usuario.UsuarioActivity">
+
+    <ImageView
+        android:id="@+id/arrow_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/dark_brown" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -40,30 +50,33 @@
         app:layout_constraintGuide_begin="219dp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textlayout_email"
+        android:id="@+id/textlayout_prontuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:hint="@string/hint_prontuario"
+        app:layout_constraintBottom_toTopOf="@id/textlayout_name"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guidelineH30">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/text_email"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="61dp"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textlayout_password"
+        android:id="@+id/textlayout_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:hint="@string/hint_name"
-        app:layout_constraintEnd_toEndOf="@id/textlayout_email"
-        app:layout_constraintStart_toStartOf="@id/textlayout_email"
-        app:layout_constraintTop_toBottomOf="@id/textlayout_email">
+        app:layout_constraintTop_toBottomOf="@id/textlayout_prontuario"
+        app:layout_constraintBottom_toTopOf="@id/next_button"
+        app:layout_constraintEnd_toEndOf="@id/textlayout_prontuario"
+        app:layout_constraintStart_toStartOf="@id/textlayout_prontuario">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/text_password"
@@ -73,16 +86,27 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/harmonic_average_button"
+        android:id="@+id/next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rosy_beige"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp"
+        android:layout_marginTop="20dp"
         android:text="@string/button_advance"
         android:textColor="@color/white"
+        android:textSize="15sp"
         android:textStyle="bold"
-        android:layout_marginTop="44dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textlayout_password" />
+        app:layout_constraintTop_toBottomOf="@id/textlayout_name"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="@+id/textlayout_name"
+        app:layout_constraintStart_toStartOf="@+id/textlayout_name" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.72" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
