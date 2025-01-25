@@ -6,8 +6,7 @@ import java.time.LocalDateTime
 
 class Voto(prontuario: String, val opcao: OpcaoVoto, fromDB: Boolean) {
 
-    var codigoVoto: String
-        private set
+    val codigoVoto: String
 
     init {
         if (!fromDB) {
