@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PesquisaDeOpiniao"
         tools:targetApi="31">
         <activity
+            android:name=".ui.result.ResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.checkVote.CheckVoteActivity"
             android:exported="false" />
         <activity

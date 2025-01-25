@@ -18,4 +18,18 @@
     <string name="option_regular">Regular</string>
     <string name="option_ruim">Ruim</string>
     <string name="vote_button">Votar</string>
+    <string name="menu_vote_title">Menu Pesquisa</string>
+    <string name="make_vote_button">Realizar Votação</string>
+    <string name="insert_vote_button">Inserir Voto</string>
+    <string name="title_inform_key">Informe a sua chave</string>
+    <string name="input_vote_key">Chave do Voto</string>
+    <string name="check_vote_button">Consultar Voto</string>
+    <string name="vote_result_title">Você votou em:</string>
+    <string name="vote_result">BOM</string>
+    <string name="result_vote_title">Resultado dos Votos</string>
+    <string name="result_field_otimo">Ótimo:</string>
+    <string name="result_field_bom">Bom:</string>
+    <string name="result_field_regular">Regular:</string>
+    <string name="result_field_ruim">Ruim:</string>
+    <string name="result_field_total">Total:</string>
 </resources>

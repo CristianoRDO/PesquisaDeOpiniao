@@ -9,7 +9,7 @@
     android:padding="20dp"
     tools:context=".ui.usuario.UsuarioActivity">
 
-    <ImageView
+     <ImageView
         android:id="@+id/arrow_back"
         android:layout_width="50dp"
         android:layout_height="50dp"
