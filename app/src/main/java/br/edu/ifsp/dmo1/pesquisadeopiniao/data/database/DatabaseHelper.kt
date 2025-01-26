@@ -25,8 +25,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_KEYS
 
         const val CREATE_VOTE_TABLE = """CREATE TABLE ${DATABASE_KEYS.VOTE_TABLE_NAME} (
             ${DATABASE_KEYS.COLUMN_VOTE_CODE} TEXT PRIMARY KEY,
-            ${DATABASE_KEYS.COLUMN_VOTE_OPTION} TEXT CHECK (${DATABASE_KEYS.COLUMN_VOTE_OPTION} IN ('ÓTIMO', 'BOM', 'REGULAR', 'RUIM'))
-        );""";
+            ${DATABASE_KEYS.COLUMN_VOTE_OPTION} TEXT CHECK (${DATABASE_KEYS.COLUMN_VOTE_OPTION} IN ('OTIMO', 'BOM', 'REGULAR', 'RUIM'))
+        );"""
     }
 
     override fun onCreate(db: SQLiteDatabase) {

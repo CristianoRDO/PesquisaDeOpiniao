@@ -73,6 +73,7 @@
             android:id="@+id/otimo_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/dark_brown"
             android:textSize="30sp" />
     </LinearLayout>
 
@@ -100,6 +101,7 @@
             android:id="@+id/bom_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/dark_brown"
             android:textSize="30sp" />
     </LinearLayout>
 
@@ -127,6 +129,7 @@
             android:id="@+id/regular_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/dark_brown"
             android:textSize="30sp" />
     </LinearLayout>
 
@@ -154,6 +157,7 @@
             android:id="@+id/ruim_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/dark_brown"
             android:textSize="30sp" />
     </LinearLayout>
 
@@ -181,6 +185,7 @@
             android:id="@+id/total_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/dark_brown"
             android:textSize="30sp" />
     </LinearLayout>
 

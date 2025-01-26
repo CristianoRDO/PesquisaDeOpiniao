@@ -9,10 +9,10 @@ class VotoDao(private val db: DatabaseHelper) {
    fun insert(voto: Vote): Boolean {
        val writer = db.writableDatabase
        val values = ContentValues().apply {
-           put(DatabaseHelper.DATABASE_KEYS.COLUMN_VOTE_CODE, voto.codigoVoto);
+           put(DatabaseHelper.DATABASE_KEYS.COLUMN_VOTE_CODE, voto.codigoVoto)
            put(DatabaseHelper.DATABASE_KEYS.COLUMN_VOTE_OPTION, voto.opcao.toString())
        }
-       val result = writer.insert(DatabaseHelper.DATABASE_KEYS.USER_TABLE_NAME, null, values)
+       val result = writer.insert(DatabaseHelper.DATABASE_KEYS.VOTE_TABLE_NAME, null, values)
        return result != -1L
    }
 
