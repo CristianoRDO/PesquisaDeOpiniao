@@ -13,7 +13,7 @@
 
     <string name="register_vote">Registrar Voto</string>
     <string name="question">O que você acha de caldo de cana?</string>
-    <string name="option_otimo">Ótimo</string>
+    <string name="option_otimo">Otimo</string>
     <string name="option_bom">Bom</string>
     <string name="option_regular">Regular</string>
     <string name="option_ruim">Ruim</string>

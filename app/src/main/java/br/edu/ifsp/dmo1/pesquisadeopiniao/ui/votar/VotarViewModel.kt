@@ -8,6 +8,7 @@ import br.edu.ifsp.dmo1.pesquisadeopiniao.data.model.User
 import br.edu.ifsp.dmo1.pesquisadeopiniao.data.model.Vote
 import br.edu.ifsp.dmo1.pesquisadeopiniao.data.repository.UsuarioRepository
 import br.edu.ifsp.dmo1.pesquisadeopiniao.data.repository.VotoRepository
+import br.edu.ifsp.dmo1.pesquisadeopiniao.utils.OpcaoVoto
 
 class VotarViewModel(application: Application) : AndroidViewModel(application) {
     private val voteRepository = VotoRepository(application)
@@ -28,4 +29,18 @@ class VotarViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun findUserByProntuario(prontuario: String): User? = userRepository.findUserByProntuario(prontuario)
+
+    fun insertDatabaseVote() {
+        val vote = _vote.value
+        val user = _user.value
+
+        if (user != null && vote != null) {
+            voteRepository.insert(vote)
+            userRepository.insert(user)
+        }
+    }
+
+    fun getProntuarioUser(): String? {
+        return _user.value?.prontuario
+    }
 }

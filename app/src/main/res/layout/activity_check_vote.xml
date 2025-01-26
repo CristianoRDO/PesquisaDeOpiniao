@@ -51,25 +51,25 @@
         app:layout_constraintGuide_begin="256dp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textlayout_email"
+        android:id="@+id/textlayout_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:hint="@string/input_vote_key"
-        app:layout_constraintBottom_toTopOf="@id/button_vote"
+        app:layout_constraintBottom_toTopOf="@+id/check_vote_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_email"
+            android:id="@+id/text_code_vote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button_vote"
+        android:id="@+id/check_vote_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rosy_beige"
@@ -82,7 +82,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textlayout_email" />
+        app:layout_constraintTop_toBottomOf="@+id/textlayout_code" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -92,23 +92,26 @@
         app:layout_constraintGuide_percent="0.75" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/title_vote_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/vote_result_title"
         android:textSize="25sp"
+        android:textColor="@color/dark_brown"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <TextView
+        android:id="@+id/vote_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/vote_result"
         android:textSize="25sp"
+        android:textColor="@color/dark_brown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/title_vote_result" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

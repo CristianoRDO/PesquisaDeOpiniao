@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@id/guidelineH30">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_email"
+            android:id="@+id/text_prontuaio"
             android:layout_width="match_parent"
             android:layout_height="61dp"
             android:inputType="textEmailAddress" />
@@ -79,10 +79,10 @@
         app:layout_constraintStart_toStartOf="@id/textlayout_prontuario">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_password"
+            android:id="@+id/text_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberPassword" />
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

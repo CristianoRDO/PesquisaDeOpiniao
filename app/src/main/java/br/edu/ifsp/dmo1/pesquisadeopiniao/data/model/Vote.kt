@@ -22,6 +22,7 @@ class Vote(prontuario: String, val opcao: OpcaoVoto, fromDB: Boolean) {
         val bytes = text.toByteArray()
         val md = MessageDigest.getInstance("SHA-256")
         val digest = md.digest(bytes)
-        return digest.joinToString("") { "%02x".format(it) }
+        val hash = digest.joinToString("") { "%02x".format(it) }
+        return hash.take(10)
     }
 }
