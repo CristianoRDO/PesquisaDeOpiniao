@@ -1,8 +1,12 @@
 package br.edu.ifsp.dmo1.pesquisadeopiniao.ui.votar
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -39,14 +43,27 @@ class VotarActivity : AppCompatActivity() {
     private fun configObservers(){
         viewModel.user.observe(this, Observer { user ->
             if (user != null) {
-                binding.userButton.isEnabled = false
+                binding.userButton.visibility = View.GONE
+                binding.selectVoteButton.visibility = View.VISIBLE
             }
         })
 
         viewModel.vote.observe(this, Observer { vote ->
-            Toast.makeText(this, "${vote.codigoVoto}", Toast.LENGTH_SHORT).show()
             if (vote != null) {
-                binding.selectVoteButton.isEnabled = false
+                binding.selectVoteButton.visibility = View.GONE
+                binding.voteButton.visibility = View.VISIBLE
+            }
+        })
+
+        viewModel.insertedVote.observe(this, Observer {
+            if(it){
+                binding.voteButton.visibility = View.GONE
+                binding.textResultVote.visibility = View.VISIBLE
+                binding.codeVote.visibility = View.VISIBLE
+
+                binding.codeVote.text = viewModel.vote.value!!.codigoVoto
+
+                binding.copyCodeButton.visibility = View.VISIBLE
             }
         })
     }
@@ -57,24 +74,22 @@ class VotarActivity : AppCompatActivity() {
         binding.userButton.setOnClickListener {
             if(viewModel.user.value == null){
                 usuarioResultLauncher.launch(Intent(this, UserActivity::class.java))
-            } else{
-                Toast.makeText(this, "Usuário Já Inserido", Toast.LENGTH_LONG).show()
             }
         }
 
         binding.selectVoteButton.setOnClickListener {
             if(viewModel.vote.value == null){
                 votoResultLauncher.launch(Intent(this, VoteActivity::class.java))
-            }else{
-                Toast.makeText(this, "Opcao Ja Selecionada", Toast.LENGTH_LONG).show()
             }
         }
+        binding.voteButton.setOnClickListener{ viewModel.insertDatabaseVote() }
 
-        binding.voteButton.setOnClickListener{
+        binding.copyCodeButton.setOnClickListener{
+            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
 
-            Toast.makeText(this, "${viewModel.vote.value!!.codigoVoto}, ${viewModel.vote.value!!.opcao}", Toast.LENGTH_LONG).show()
-
-            viewModel.insertDatabaseVote()
+            val clip = ClipData.newPlainText("Código", binding.codeVote.text)
+            clipboard.setPrimaryClip(clip)
+            Toast.makeText(this, "Texto copiado para a área de transferência!", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -88,9 +103,6 @@ class VotarActivity : AppCompatActivity() {
                     val prontuario = extras.getString(Constants.KEY_USER_PRONTUARIO)
 
                     if (prontuario != null && name != null) {
-//                        if (prontuario == "admin" && name == "admin") {
-//                            Toast.makeText(this, "TU já votou.", Toast.LENGTH_LONG).show()
-//                       }
                        val findUser = viewModel.findUserByProntuario(prontuario)
                         if (findUser == null) {
                             viewModel.insertUser(User(prontuario, name))

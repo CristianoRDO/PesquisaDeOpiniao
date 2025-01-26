@@ -20,6 +20,9 @@ class VotarViewModel(application: Application) : AndroidViewModel(application) {
     private val _vote = MutableLiveData<Vote>()
     val vote: LiveData<Vote> get() = _vote
 
+    private val _insertedVote = MutableLiveData<Boolean>()
+    val insertedVote: LiveData<Boolean> = _insertedVote
+
     fun insertUser(user: User) {
         _user.value = user
     }
@@ -37,6 +40,7 @@ class VotarViewModel(application: Application) : AndroidViewModel(application) {
         if (user != null && vote != null) {
             voteRepository.insert(vote)
             userRepository.insert(user)
+            _insertedVote.value = true
         }
     }
 

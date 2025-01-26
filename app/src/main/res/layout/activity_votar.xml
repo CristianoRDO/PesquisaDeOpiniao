@@ -53,9 +53,9 @@
         android:text="@string/inform_user"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:layout_marginTop="44dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/select_vote_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
@@ -70,11 +70,12 @@
         android:text="@string/insert_vote_button"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:layout_marginTop="44dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/vote_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_button" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/vote_button"
@@ -87,10 +88,58 @@
         android:text="@string/make_vote_button"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:layout_marginTop="44dp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/select_vote_button"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/text_result_vote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Código do Voto:"
+        android:textAlignment="center"
+        android:textColor="@color/dark_brown"
+        android:textSize="35sp"
+        android:layout_marginTop="44dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/code_vote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/dark_brown"
+        android:textSize="35sp"
+        android:layout_marginTop="44dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_result_vote"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/copy_code_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:backgroundTint="@color/rosy_beige"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp"
+        android:text="Copiar Código"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="44dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/code_vote"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
