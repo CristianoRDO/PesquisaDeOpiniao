@@ -1,12 +1,12 @@
 package br.edu.ifsp.dmo1.pesquisadeopiniao.data.database
 
 import android.content.ContentValues
-import br.edu.ifsp.dmo1.pesquisadeopiniao.data.model.Voto
+import br.edu.ifsp.dmo1.pesquisadeopiniao.data.model.Vote
 import br.edu.ifsp.dmo1.pesquisadeopiniao.utils.OpcaoVoto
 
 class VotoDao(private val db: DatabaseHelper) {
 
-   fun insert(voto: Voto): Boolean {
+   fun insert(voto: Vote): Boolean {
        val writer = db.writableDatabase
        val values = ContentValues().apply {
            put(DatabaseHelper.DATABASE_KEYS.COLUMN_VOTE_CODE, voto.codigoVoto);
@@ -40,7 +40,7 @@ class VotoDao(private val db: DatabaseHelper) {
         return countByOption
     }
 
-    fun getByCode(code: String): Voto? {
+    fun getByCode(code: String): Vote? {
         val reader = db.readableDatabase
         val columns = arrayOf(
             DatabaseHelper.DATABASE_KEYS.COLUMN_VOTE_CODE,
@@ -58,13 +58,13 @@ class VotoDao(private val db: DatabaseHelper) {
             null
         )
 
-        val voto: Voto?
+        val voto: Vote?
         cursor.use {
             voto = if (it.moveToNext()) {
                 val codeBd = it.getString(0)
                 val valueOption = it.getString(1)
                 val option = OpcaoVoto.valueOf(valueOption)
-                Voto(codeBd, option, true)
+                Vote(codeBd, option, true)
             } else {
                 null
             }

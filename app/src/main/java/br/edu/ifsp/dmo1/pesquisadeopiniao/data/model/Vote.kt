@@ -1,10 +1,11 @@
 package br.edu.ifsp.dmo1.pesquisadeopiniao.data.model
 
 import br.edu.ifsp.dmo1.pesquisadeopiniao.utils.OpcaoVoto
+import java.io.Serializable
 import java.security.MessageDigest
 import java.time.LocalDateTime
 
-class Voto(prontuario: String, val opcao: OpcaoVoto, fromDB: Boolean) {
+class Vote(prontuario: String, val opcao: OpcaoVoto, fromDB: Boolean) {
 
     val codigoVoto: String
 

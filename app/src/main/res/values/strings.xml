@@ -9,7 +9,7 @@
     <string name="inform_user">Informar Usuário</string>
     <string name="hint_prontuario">Prontuário</string>
     <string name="hint_name">Nome</string>
-    <string name="button_advance">Avançar</string>
+    <string name="button_advance">Cadastrar</string>
 
     <string name="register_vote">Registrar Voto</string>
     <string name="question">O que você acha de caldo de cana?</string>

@@ -1,11 +1,11 @@
 package br.edu.ifsp.dmo1.pesquisadeopiniao.data.database
 
 import android.content.ContentValues
-import br.edu.ifsp.dmo1.pesquisadeopiniao.data.model.Usuario
+import br.edu.ifsp.dmo1.pesquisadeopiniao.data.model.User
 
 class UsuarioDao(private val db: DatabaseHelper) {
 
-    fun insert(usuario: Usuario): Boolean {
+    fun insert(usuario: User): Boolean {
         val writer = db.writableDatabase
         val values = ContentValues().apply {
             put(DatabaseHelper.DATABASE_KEYS.COLUMN_USER_PRONTUARIO, usuario.prontuario);
@@ -15,7 +15,7 @@ class UsuarioDao(private val db: DatabaseHelper) {
         return result != -1L
     }
 
-    fun findUserByProntuario(prontuario: String): Usuario? {
+    fun findUserByProntuario(prontuario: String): User? {
         val reader = db.readableDatabase
         val columns = arrayOf(
             DatabaseHelper.DATABASE_KEYS.COLUMN_USER_PRONTUARIO,
@@ -33,10 +33,10 @@ class UsuarioDao(private val db: DatabaseHelper) {
             null
         )
 
-        val usuario: Usuario?
+        val usuario: User?
         cursor.use {
             usuario = if (it.moveToNext()) {
-                Usuario(it.getString(0), it.getString(1))
+                User(it.getString(0), it.getString(1))
             } else {
                 null
             }
