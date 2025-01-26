@@ -54,6 +54,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        app:cursorColor="@color/dark_brown"
+        app:boxStrokeColor="@color/dark_brown"
+        app:hintTextColor="@color/dark_brown"
+        android:textColorHint="@color/dark_brown"
         android:hint="@string/hint_prontuario"
         app:layout_constraintBottom_toTopOf="@id/textlayout_name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +67,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/text_prontuaio"
             android:layout_width="match_parent"
+            android:textColor="@color/dark_brown"
             android:layout_height="61dp"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -72,6 +77,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        app:cursorColor="@color/dark_brown"
+        app:boxStrokeColor="@color/dark_brown"
+        app:hintTextColor="@color/dark_brown"
+        android:textColorHint="@color/dark_brown"
         android:hint="@string/hint_name"
         app:layout_constraintTop_toBottomOf="@id/textlayout_prontuario"
         app:layout_constraintBottom_toTopOf="@id/next_button"
@@ -82,6 +91,7 @@
             android:id="@+id/text_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/dark_brown"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 

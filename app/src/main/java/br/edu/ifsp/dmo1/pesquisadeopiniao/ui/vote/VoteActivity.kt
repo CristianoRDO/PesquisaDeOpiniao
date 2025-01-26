@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.dmo1.pesquisadeopiniao.databinding.ActivityVoteBinding
 import br.edu.ifsp.dmo1.pesquisadeopiniao.utils.Constants
 
-
 class VoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVoteBinding
 
