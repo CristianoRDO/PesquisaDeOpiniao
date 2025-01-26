@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/arithmetic_average_button"
+        android:id="@+id/participate_research_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -45,13 +45,13 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/weighted_average_button"
+        app:layout_constraintBottom_toTopOf="@+id/check_vote_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/weighted_average_button"
+        android:id="@+id/check_vote_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="30dp"
@@ -59,16 +59,16 @@
         android:text="@string/button_check_vote"
         android:layout_marginHorizontal="30dp"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/arithmetic_average_button"
-        app:layout_constraintStart_toStartOf="@+id/arithmetic_average_button"
-        app:layout_constraintTop_toBottomOf="@+id/arithmetic_average_button"
-        app:layout_constraintBottom_toTopOf="@id/harmonic_average_button"
+        app:layout_constraintEnd_toEndOf="@+id/participate_research_button"
+        app:layout_constraintStart_toStartOf="@+id/participate_research_button"
+        app:layout_constraintTop_toBottomOf="@+id/participate_research_button"
+        app:layout_constraintBottom_toTopOf="@+id/count_votes_button"
         android:backgroundTint="@color/rosy_beige"
         android:textColor="@color/white"
         android:textStyle="bold"/>
 
     <Button
-        android:id="@+id/harmonic_average_button"
+        android:id="@+id/count_votes_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rosy_beige"
@@ -80,8 +80,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/weighted_average_button"
-        app:layout_constraintStart_toStartOf="@+id/weighted_average_button"
-        app:layout_constraintTop_toBottomOf="@+id/weighted_average_button" />
+        app:layout_constraintEnd_toEndOf="@+id/check_vote_button"
+        app:layout_constraintStart_toStartOf="@+id/check_vote_button"
+        app:layout_constraintTop_toBottomOf="@+id/check_vote_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

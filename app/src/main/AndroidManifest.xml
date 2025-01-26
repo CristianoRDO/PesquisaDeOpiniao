@@ -13,16 +13,19 @@
         android:theme="@style/Theme.PesquisaDeOpiniao"
         tools:targetApi="31">
         <activity
+            android:name=".ui.votar.VotarActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.result.ResultActivity"
             android:exported="false" />
         <activity
             android:name=".ui.checkVote.CheckVoteActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.voto.VotoActivity"
+            android:name=".ui.vote.VoteActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.usuario.UsuarioActivity"
+            android:name=".ui.user.UserActivity"
             android:exported="false" />
         <activity
             android:name=".ui.main.MainActivity"
