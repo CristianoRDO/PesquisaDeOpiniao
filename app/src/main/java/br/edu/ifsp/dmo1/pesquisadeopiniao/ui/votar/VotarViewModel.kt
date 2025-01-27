@@ -1,6 +1,7 @@
 package br.edu.ifsp.dmo1.pesquisadeopiniao.ui.votar
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -31,11 +32,14 @@ class VotarViewModel(application: Application) : AndroidViewModel(application) {
     fun insertUser(prontuario: String, name: String) {
         val foundUser = findUserByProntuario(prontuario)
         if (foundUser == null) {
-            userRepository.insert(User(prontuario, name))
+            val user = User(prontuario, name)
+            userRepository.insert(user)
             _insertedUser.value = true
+            _user.value = user
+        } else {
+            _insertedUser.value = false
+            _lastUserName.value = foundUser.nome
         }
-        _insertedUser.value = false
-        _lastUserName.value = name
     }
 
     fun insertVote(vote: Vote) {
@@ -58,4 +62,6 @@ class VotarViewModel(application: Application) : AndroidViewModel(application) {
     fun getProntuarioUser(): String? {
         return _user.value?.prontuario
     }
+
+    fun getLastUserName() = _lastUserName.value
 }

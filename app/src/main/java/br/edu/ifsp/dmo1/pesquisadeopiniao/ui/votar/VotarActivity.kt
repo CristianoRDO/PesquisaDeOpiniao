@@ -69,8 +69,9 @@ class VotarActivity : AppCompatActivity() {
 
         viewModel.insertedUser.observe(this, Observer {
             if (!it) {
-                val name = viewModel.lastUserName.value
-                Toast.makeText(this, "${name}, você já votou.", Toast.LENGTH_LONG).show()
+                viewModel.lastUserName.observe(this, Observer {
+                    Toast.makeText(this, "${it}, você já votou.", Toast.LENGTH_LONG).show()
+                })
             }
         })
     }
@@ -109,7 +110,8 @@ class VotarActivity : AppCompatActivity() {
                     val name = extras.getString(Constants.KEY_USER_NAME)
                     val prontuario = extras.getString(Constants.KEY_USER_PRONTUARIO)
                     if (name != null && prontuario != null) {
-                        viewModel.insertUser(prontuario, name)
+
+             viewModel.insertUser(prontuario, name)
                     } else {
                         Toast.makeText(
                             this,
@@ -119,7 +121,6 @@ class VotarActivity : AppCompatActivity() {
                 }
             }
         }
-
         votoResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
         { result ->
             if (result.resultCode == Activity.RESULT_OK) {
