@@ -8,7 +8,6 @@ import br.edu.ifsp.dmo1.pesquisadeopiniao.data.model.User
 import br.edu.ifsp.dmo1.pesquisadeopiniao.data.model.Vote
 import br.edu.ifsp.dmo1.pesquisadeopiniao.data.repository.UsuarioRepository
 import br.edu.ifsp.dmo1.pesquisadeopiniao.data.repository.VotoRepository
-import br.edu.ifsp.dmo1.pesquisadeopiniao.utils.OpcaoVoto
 
 class VotarViewModel(application: Application) : AndroidViewModel(application) {
     private val voteRepository = VotoRepository(application)
@@ -23,8 +22,20 @@ class VotarViewModel(application: Application) : AndroidViewModel(application) {
     private val _insertedVote = MutableLiveData<Boolean>()
     val insertedVote: LiveData<Boolean> = _insertedVote
 
-    fun insertUser(user: User) {
-        _user.value = user
+    private val _insertedUser = MutableLiveData<Boolean>()
+    val insertedUser: LiveData<Boolean> = _insertedUser
+
+    private val _lastUserName = MutableLiveData<String>()
+    val lastUserName: LiveData<String> = _lastUserName
+
+    fun insertUser(prontuario: String, name: String) {
+        val foundUser = findUserByProntuario(prontuario)
+        if (foundUser == null) {
+            userRepository.insert(User(prontuario, name))
+            _insertedUser.value = true
+        }
+        _insertedUser.value = false
+        _lastUserName.value = name
     }
 
     fun insertVote(vote: Vote) {

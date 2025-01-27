@@ -66,6 +66,13 @@ class VotarActivity : AppCompatActivity() {
                 binding.copyCodeButton.visibility = View.VISIBLE
             }
         })
+
+        viewModel.insertedUser.observe(this, Observer {
+            if (!it) {
+                val name = viewModel.lastUserName.value
+                Toast.makeText(this, "${name}, você já votou.", Toast.LENGTH_LONG).show()
+            }
+        })
     }
 
     private fun configListeners(){
@@ -101,14 +108,13 @@ class VotarActivity : AppCompatActivity() {
                 if (extras != null) {
                     val name = extras.getString(Constants.KEY_USER_NAME)
                     val prontuario = extras.getString(Constants.KEY_USER_PRONTUARIO)
-
-                    if (prontuario != null && name != null) {
-                       val findUser = viewModel.findUserByProntuario(prontuario)
-                        if (findUser == null) {
-                            viewModel.insertUser(User(prontuario, name))
-                       } else {
-                           Toast.makeText(this, "O usuário ${name} já votou.", Toast.LENGTH_LONG).show()
-                       }
+                    if (name != null && prontuario != null) {
+                        viewModel.insertUser(prontuario, name)
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "Preencha todos os campos antes de realizar o cadastro.",
+                            Toast.LENGTH_LONG).show()
                     }
                 }
             }
