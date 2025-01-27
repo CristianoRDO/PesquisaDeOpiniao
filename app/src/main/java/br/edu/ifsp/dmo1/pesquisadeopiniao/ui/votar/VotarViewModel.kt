@@ -9,6 +9,7 @@ import br.edu.ifsp.dmo1.pesquisadeopiniao.data.model.User
 import br.edu.ifsp.dmo1.pesquisadeopiniao.data.model.Vote
 import br.edu.ifsp.dmo1.pesquisadeopiniao.data.repository.UsuarioRepository
 import br.edu.ifsp.dmo1.pesquisadeopiniao.data.repository.VotoRepository
+import br.edu.ifsp.dmo1.pesquisadeopiniao.utils.OpcaoVoto
 
 class VotarViewModel(application: Application) : AndroidViewModel(application) {
     private val voteRepository = VotoRepository(application)
@@ -29,21 +30,27 @@ class VotarViewModel(application: Application) : AndroidViewModel(application) {
     private val _lastUserName = MutableLiveData<String>()
     val lastUserName: LiveData<String> = _lastUserName
 
-    fun insertUser(prontuario: String, name: String) {
-        val foundUser = findUserByProntuario(prontuario)
-        if (foundUser == null) {
-            val user = User(prontuario, name)
-            userRepository.insert(user)
-            _insertedUser.value = true
-            _user.value = user
-        } else {
-            _insertedUser.value = false
-            _lastUserName.value = foundUser.nome
+    fun insertUser(prontuario: String?, name: String?) {
+        if (prontuario != null && name != null) {
+            val foundUser = findUserByProntuario(prontuario)
+            if (foundUser == null) {
+                val user = User(prontuario, name)
+                userRepository.insert(user)
+                _insertedUser.value = true
+                _user.value = user
+            } else {
+                _insertedUser.value = false
+                _lastUserName.value = foundUser.nome
+            }
         }
     }
 
-    fun insertVote(vote: Vote) {
-        _vote.value = vote
+    fun insertVote(option: String?) {
+        if (option != null) {
+            val prontuario = getProntuarioUser()!!
+            val vote = Vote(prontuario, OpcaoVoto.valueOf(option.uppercase()), false)
+            _vote.value = vote
+        }
     }
 
     fun findUserByProntuario(prontuario: String): User? = userRepository.findUserByProntuario(prontuario)
