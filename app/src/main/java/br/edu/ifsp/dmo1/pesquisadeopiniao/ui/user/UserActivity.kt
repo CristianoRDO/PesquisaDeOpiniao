@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import br.edu.ifsp.dmo1.pesquisadeopiniao.R
 import br.edu.ifsp.dmo1.pesquisadeopiniao.databinding.ActivityUserBinding
 import br.edu.ifsp.dmo1.pesquisadeopiniao.utils.Constants
 
@@ -36,7 +37,10 @@ class UserActivity : AppCompatActivity() {
             setResult(RESULT_OK, resultIntent)
             finish()
         } else{
-            Toast.makeText(this, "Preencha Todos os Campos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                getString(R.string.fill_all_fields_error),
+                Toast.LENGTH_SHORT).show()
         }
     }
 }

@@ -6,4 +6,5 @@
     <color name="rosy_beige">#b49984</color>
     <color name="light_brown_beige">#f8f0e5</color>
     <color name="green_result">#03C03C</color>
+    <color name="red_error">#ED2939</color>
 </resources>

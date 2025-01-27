@@ -34,4 +34,11 @@
     <string name="result_field_total">Total:</string>
     <string name="code_vote">Código do Voto:</string>
     <string name="copy_code">Copiar Código</string>
+    <string name="error_invalid_code">Código Inválido</string>
+    <string name="error_code_blank">Informe o Código do Voto</string>
+    <string name="fill_all_fields_error">Preencha Todos os Campos</string>
+    <string name="copy_text_message">Texto copiado para a área de transferência!</string>
+    <string name="label_copy_text">Código</string>
+    <string name="user_already_vote_error">%1$s, você já votou.</string>
+    <string name="select_option_error">Por favor, selecione uma opção</string>
 </resources>

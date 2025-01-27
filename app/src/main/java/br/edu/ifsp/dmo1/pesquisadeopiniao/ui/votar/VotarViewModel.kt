@@ -24,9 +24,6 @@ class VotarViewModel(application: Application) : AndroidViewModel(application) {
     private val _insertedVote = MutableLiveData<Boolean>()
     val insertedVote: LiveData<Boolean> = _insertedVote
 
-    private val _insertedUser = MutableLiveData<Boolean>()
-    val insertedUser: LiveData<Boolean> = _insertedUser
-
     private val _lastUserName = MutableLiveData<String>()
     val lastUserName: LiveData<String> = _lastUserName
 
@@ -36,10 +33,8 @@ class VotarViewModel(application: Application) : AndroidViewModel(application) {
             if (foundUser == null) {
                 val user = User(prontuario, name)
                 userRepository.insert(user)
-                _insertedUser.value = true
                 _user.value = user
             } else {
-                _insertedUser.value = false
                 _lastUserName.value = foundUser.nome
             }
         }
@@ -54,7 +49,7 @@ class VotarViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun findUserByProntuario(prontuario: String): User? = userRepository.findUserByProntuario(prontuario)
+    private fun findUserByProntuario(prontuario: String): User? = userRepository.findUserByProntuario(prontuario)
 
     fun insertDatabaseVote() {
         val vote = _vote.value
@@ -67,7 +62,7 @@ class VotarViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun getProntuarioUser(): String? {
+    private fun getProntuarioUser(): String? {
         return _user.value?.prontuario
     }
 

@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.edu.ifsp.dmo1.pesquisadeopiniao.R
-import br.edu.ifsp.dmo1.pesquisadeopiniao.data.model.Vote
 import br.edu.ifsp.dmo1.pesquisadeopiniao.databinding.ActivityCheckVoteBinding
 
 class CheckVoteActivity : AppCompatActivity() {
@@ -41,11 +40,12 @@ class CheckVoteActivity : AppCompatActivity() {
                 binding.voteResult.text = vote.opcao.description
             }
             else{
-                binding.voteResult.text = "Código Inválido"
+                binding.voteResult.text = getString(R.string.error_invalid_code)
+                binding.voteResult.setTextColor(getColor(R.color.red_error))
             }
 
         }else{
-            Toast.makeText(this, "Informe o Código do Voto", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.error_code_blank), Toast.LENGTH_SHORT).show()
         }
     }
 }

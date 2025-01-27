@@ -13,6 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import br.edu.ifsp.dmo1.pesquisadeopiniao.R
 import br.edu.ifsp.dmo1.pesquisadeopiniao.databinding.ActivityVotarBinding
 import br.edu.ifsp.dmo1.pesquisadeopiniao.ui.user.UserActivity
 import br.edu.ifsp.dmo1.pesquisadeopiniao.ui.vote.VoteActivity
@@ -65,12 +66,10 @@ class VotarActivity : AppCompatActivity() {
             }
         })
 
-        viewModel.insertedUser.observe(this, Observer {
-            if (!it) {
-                viewModel.lastUserName.observe(this, Observer { name ->
-                    Toast.makeText(this, "${name}, você já votou.", Toast.LENGTH_LONG).show()
-                })
-            }
+        viewModel.lastUserName.observe(this, Observer { name ->
+            Toast.makeText(this,
+                getString(R.string.user_already_vote_error, name),
+                Toast.LENGTH_LONG).show()
         })
     }
 
@@ -93,9 +92,9 @@ class VotarActivity : AppCompatActivity() {
         binding.copyCodeButton.setOnClickListener {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
 
-            val clip = ClipData.newPlainText("Código", binding.codeVote.text)
+            val clip = ClipData.newPlainText(getString(R.string.label_copy_text), binding.codeVote.text)
             clipboard.setPrimaryClip(clip)
-            Toast.makeText(this, "Texto copiado para a área de transferência!", Toast.LENGTH_SHORT)
+            Toast.makeText(this, getString(R.string.copy_text_message), Toast.LENGTH_SHORT)
                 .show()
         }
     }
