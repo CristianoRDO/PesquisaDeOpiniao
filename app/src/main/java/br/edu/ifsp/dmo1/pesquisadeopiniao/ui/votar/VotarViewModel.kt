@@ -48,7 +48,8 @@ class VotarViewModel(application: Application) : AndroidViewModel(application) {
     fun insertVote(option: String?) {
         if (option != null) {
             val prontuario = getProntuarioUser()!!
-            val vote = Vote(prontuario, OpcaoVoto.valueOf(option.uppercase()), false)
+            val eOption = OpcaoVoto.valueOf(option.replace("Ó", "O").uppercase())
+            val vote = Vote(prontuario, eOption, false)
             _vote.value = vote
         }
     }

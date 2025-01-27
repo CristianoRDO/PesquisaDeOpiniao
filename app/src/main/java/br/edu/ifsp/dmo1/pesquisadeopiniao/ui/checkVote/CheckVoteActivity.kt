@@ -38,7 +38,7 @@ class CheckVoteActivity : AppCompatActivity() {
 
             if(vote != null){
                 binding.titleVoteResult.visibility = View.VISIBLE
-                binding.voteResult.text = vote.opcao.toString()
+                binding.voteResult.text = vote.opcao.description
             }
             else{
                 binding.voteResult.text = "Código Inválido"
